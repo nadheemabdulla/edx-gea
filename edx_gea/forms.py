@@ -4,7 +4,7 @@ import os
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from django.forms.util import ErrorList
+from django.forms.utils import ErrorList
 from django.utils.translation import get_language, ugettext_lazy, ugettext as _
 
 from student.models import CourseEnrollment
