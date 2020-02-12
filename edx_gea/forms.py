@@ -73,4 +73,4 @@ class UploadAssessmentFileForm(forms.Form):
             self._errors['assessment_file'] = ErrorList()
         error_msg = _(u"Line %(line)s: %(error_description)s") % {'line' : line, 'error_description' : error_description}
         self._errors['assessment_file'].append(error_msg)
-    
+

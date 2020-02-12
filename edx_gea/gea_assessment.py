@@ -3,6 +3,9 @@ from collections import namedtuple
 from student.models import anonymous_id_for_user
 from submissions import api as submissions_api
 
+import logging
+log = logging.getLogger(__name__)
+
 Score = namedtuple('Score', ['points_earned', 'points_possible'])
 """A Score contains the student grade (points_earned) and the max score (points_possible)."""
 
@@ -10,9 +13,9 @@ class GeaAssessment(object):
     """Handle communication with the submissions_api."""
 
     def __init__(self, user, gea_xblock):
-        self.submission_id = {"item_id": gea_xblock.location,
+        self.submission_id = {"item_id": unicode(gea_xblock.location),
                               "item_type": 'gea',
-                              "course_id": gea_xblock.course_id,
+                              "course_id": unicode(gea_xblock.course_id),
                               "student_id": anonymous_id_for_user(user,
                                                                   gea_xblock.course_id)}
         """dict: Used to determine which course, student, and location a submission belongs to."""
@@ -31,6 +34,7 @@ class GeaAssessment(object):
     @property
     def comment(self):
         """str: The staff comment."""
+        log.error('submission_id {}'.format(self.submission_id))
         submissions = submissions_api.get_submissions(self.submission_id)
         if submissions:
             return submissions[0]['answer']['comment']

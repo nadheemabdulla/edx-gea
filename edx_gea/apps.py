@@ -11,10 +11,11 @@ log = logging.getLogger(__name__)
 class EdxGeaConfig(AppConfig):
     name = 'edx_gea'
     log.error('1')
+#    from .gea import GradeExternalActivityXBlock
 
     def ready(self):
         log.error('2')
         from .gea import GradeExternalActivityXBlock
-        log.error('3')
+        log.error('import GradeExternalActivityXBlock')
         edx_gea.GradeExternalActivityXBlock = GradeExternalActivityXBlock
         log.error('4')
