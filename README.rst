@@ -18,13 +18,7 @@ Installation
      .. code:: sh
           pip install --extra-index-url https://pypi.fury.io/openfun edx-gea
 
-2. Add edx\_gea to installed Django apps
-
-   - In ``/edx/app/edxapp/edx-platform/cms/envs/common.py``, add ``'edx_gea'``
-     to OPTIONAL_APPS
-
-   - In ``/edx/app/edxapp/edx-platform/lms/envs/common.py``, add ``'edx_gea'``
-     to OPTIONAL_APPS
+2. compile statics
 
 Documentation
 ~~~~~~~~~~~~~
