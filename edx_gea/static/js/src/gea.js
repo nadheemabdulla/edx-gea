@@ -1,7 +1,7 @@
 function GeaXBlock(runtime, element) {
     var uploadUrl = runtime.handlerUrl(element, 'upload_assessments');
     var xblock_selector = 'div[data-usage-id="' + element.dataset.usageId +  '"] ';
-    
+
     $(function ($) { // On load.
 	assessmentButton = $(xblock_selector + '.upload-assessment-button');
 	assessmentButton.click(upload_file)
@@ -20,19 +20,19 @@ function GeaXBlock(runtime, element) {
 
 	xhr.open('POST', uploadUrl);
 	xhr.setRequestHeader("X-CSRFToken", csrftoken);
-	
-	form.append('file', assessmentFile.prop('files')[0]);
+
+        form.append('file', assessmentFile.prop('files')[0]);
 	form.append('csv_delimiter', $(xblock_selector + '[name="csv_delimiter"]').val());
 
 	xhr.send(form);
 	xhr.onload = DisplayUploadAssessmentsResponse;
     }
-    
+
     function DisplayUploadAssessmentsResponse() {
 	$(xblock_selector + '.waiting').hide();
 	$(xblock_selector + '.upload_assessments_response').html(this.response);
     }
-    
+
     // Get the csrf token from the cookie (https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/#ajax).
     function getCookie(name) {
 	var cookieValue = null;

@@ -33,7 +33,7 @@ class GradeExternalActivityXBlock(XBlock, StudioEditableXBlockMixin):
     icon_class = 'problem'
 
     display_name = String(
-        display_name='External Activity Grader',
+        display_name=_('External Activity Grader'),
         default='External Activity Grader',
         scope=Scope.settings,
         help='This name appears in the horizontal navigation at the top of '
