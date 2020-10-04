@@ -13,9 +13,9 @@ class GeaAssessment(object):
     """Handle communication with the submissions_api."""
 
     def __init__(self, user, gea_xblock):
-        self.submission_id = {"item_id": unicode(gea_xblock.location),
+        self.submission_id = {"item_id": str(gea_xblock.location),
                               "item_type": 'gea',
-                              "course_id": unicode(gea_xblock.course_id),
+                              "course_id": str(gea_xblock.course_id),
                               "student_id": anonymous_id_for_user(user,
                                                                   gea_xblock.course_id)}
         """dict: Used to determine which course, student, and location a submission belongs to."""
